@@ -1,4 +1,4 @@
-# Welcome to FASTbot ![https://1712507217.rsc.cdn77.org/wp-content/uploads/2016/08/medical-robot.jpg](src)
+# Welcome to FASTbot ![FASTbot](https://1712507217.rsc.cdn77.org/wp-content/uploads/2016/08/medical-robot.jpg)
 
 ## Objective 
 
