@@ -22,6 +22,14 @@ From a more general standpoint, there has been a lot of effort being invested in
 - Facial Recognition
 - Port Code to Custom Raspberry Pi Rover
 
+### Design Choices, Trade-Offs, Compromises
+#### Design Challenges 
+
+## Implementation
+
+
+
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
