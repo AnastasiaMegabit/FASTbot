@@ -63,7 +63,7 @@ Meet the real FASTbot and his sidekicks, the AR tags.
 
 Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics platform with a Microsoft Kinect sensor designed for the Xbox 360 gaming console. The Kobuki is a mobile base with sensors, motors and power sources that allow it to have highly accurate odometry. The project incorporated the Kinect sensor with the use of both the RGB camera and depth sensitivity functions of the device to identify ARTags and avoid obstacles, respectively.  Laser cut stands and ¼-inch dowel rods were used as stands for laminated ARTags to mark home, pick-up, and drop-off locations for testing and demonstrative purposes. 
 
-#### rqt_graphs
+### rqt_graphs
 ![Active Nodes with no Instructions](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Active%20Nodes%20when%20no%20instructions%20passed.jpeg)
 
 ![Active Nodes with Instructions](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/ActiveNodes%20when%20instruction%20passed.jpeg)
@@ -72,10 +72,10 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 
 ![ROS Graph with no Instructions](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/RosGraph%20when%20no%20instruction%20passed.jpeg)
 
-#### System Diagram
+### System Diagram
 ![SystemDiagram](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/System%20Diagram.jpeg)
 
-#### Software Implementation
+### Software Implementation
 
 File | Type | Role
 ------------ | ------------- | -------------
