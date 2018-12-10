@@ -39,8 +39,8 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 ![SystemDiagram]()
 
 #### Software Implementation
-First Header | Second Header
------------- | -------------
+First Header | Second Header | Third Header
+------------ | ------------- | -------------
 Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column
 File | Type | Role
