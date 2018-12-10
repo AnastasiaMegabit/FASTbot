@@ -24,7 +24,7 @@ We wanted to design a bot that would receive requests from a dispatcher to auton
 - Port Code to a Raspberry Pi Rover: the custom designed rover should be able to travel quickly across rugged terrain.
 
 #### Choices, Trade-Offs, Compromises
-Because Turtlebots are already well integrated with ROS and rviz, we decided to write the code for a turtlebot, refine our algorithms, and then port the code to the custom hardware where we will face many small challenges such as marking the velocity of the wheels with encoders and interpreting that in 
+Because Turtlebots are already well integrated with ROS and rviz, we decided to write the code for a turtlebot, refine our algorithms, and then port the code to the custom hardware where we will face many small challenges such as marking the velocity of the wheels with encoders and using a CAD drawing to map our rover in rviz.
 
 #### Challenges 
 
