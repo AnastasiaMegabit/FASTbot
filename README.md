@@ -40,6 +40,9 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 
 #### rqt_graphs
 ![Active Nodes with no Instructions](https://drive.google.com/open?id=1KQQpUlj6bXeZLvKLfxmruZjWGuHjCUD_)
+![Active Nodes with Instructions]()
+![ROS Graph with Instructions]()
+![ROS Graph with no Instructions]()
 
 #### System Diagram
 ![SystemDiagram]()
