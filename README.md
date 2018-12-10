@@ -45,7 +45,7 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 
 ![ROS Graph with Instructions]()
 
-![ROS Graph with no Instructions]()
+![ROS Graph with no Instructions](https://github.com/AnastasiaMegabit/FASTbot/blob/master/RosGraph%20when%20instruction%20passed.jpeg)
 
 #### System Diagram
 ![SystemDiagram]()
