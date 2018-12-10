@@ -4,7 +4,11 @@
 
 #### A First Aid Supply Transport Robot
 
-It was important to our team to solve for a real world problem.  In emergency and disaster situations, first responders are always short-handed.  Doctors and Paramedics in the field will run low on supplies and have to return to the triage tent to replenish them.  FASTbot can help with that.
+There has been a lot of effort being invested into creating bots that relieve some stress imposed on search and rescue teams and triage nurses in field hospitals. More generally, there is always going to be a need to develop technology that allows for accessibility, portability and some level of autonomy in the healthcare or disaster management sector. FASTbot can help with such situations.
+
+Consider this scenario, there is an emergency situation and the first responders are short-handed. In the field, they are running low on supplies and thus, have to return to the triage tent to replenish them. They ask FASTbot to go to the triage tent and get the supplies they need while they continue treating patients in the field. FASTbot allowed the first-responders to focus on treating patients rather than perform several trips back and forth to the triage tent for supplies. 
+
+Since it was important for our team to get closer to solving a real-world problem, we decided on work on a carrier bot that would be able to navigate its way to a specified destination while avoiding static and dynamic obstacles. Our project allowed us to get a taste of the challenges and design decisions required to fulfill the goal of the carrier bot to deliver first aid kits in unpredictable and rough terrain. 
 
 ## Objectives and Goals
 
