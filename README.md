@@ -28,30 +28,30 @@ Because Turtlebots are already well integrated with ROS and rviz, we decided to 
 
 ### Challenges 
 
-#### Locate the AR Tag: 
-- Creating the launch file to leverage the Kinect camera
-- Maintaining visual contact and keeping the tag in range
+#### Locating the AR Tag: 
+- Creating the launch file to leverage the Kinect camera was difficult.  It required finding the correct topics to use for the camera and adding/adjusting all the correct parameters to the file.
+- Maintaining visual contact and keeping the tag in range was hard to do as the bot moved around the space.  We needed to find a way to store and reference the location of the AR tag upon initial visualization so once the AR tag was seen, we sent the pose as a goal to move_base.
 
-#### Move to AR Tag and Stop
+#### Moving to AR Tag and Stop
 - Getting the bot to stop at a specific distance from the AR tag.
 - Producing the twist to rotate.
 
-#### Localization of bot in global frame
+#### Localizing the bot in global frame
 - Getting a clean map of the lab
 - Ensuring the bot recognizes the accurate location and orientation
 
-#### Generate local obstacle costmap
+#### Generating the local obstacle costmap
 - Physically moving hte bot confused it and placed obstacles where there were none
 
-#### Height of the obstacle
+#### Finding the right height of an obstacle
 - Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
 ![FASTbot taps edges of block box video]()
 
-#### Patrol an area
+#### Patrolling an area
 - Waiting for new request at home vs destination
 - Recognizing bot is not at home if it can't find the AR tag
 
-#### Follow instructions
+#### Following instructions
 - Producing the quaternion to have the bot move right and left
 - Inexact rotation/distance for patrol due to 80 degree spinScan
 
