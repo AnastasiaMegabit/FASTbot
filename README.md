@@ -99,7 +99,7 @@ Our bot achieved many goals successfully...
 
 ![Avoids static and dynamic obstacles]()
 
-[FASTbot Full Demo](https://www.youtube.com/embed/YjjWvV42Nm4)
+[![FASTbot Full Demo](https://drive.google.com/file/d/1gTSUb51K1YUqWyi14Q8-OWafoVHC9bnl/view?usp=sharing)](https://www.youtube.com/embed/YjjWvV42Nm4)
 
 
 ## Conclusion
