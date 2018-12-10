@@ -23,13 +23,38 @@ We wanted to design a bot that would receive requests from a dispatcher to auton
 - Facial Recognition: the bot should use facial recognition to identify a particular person in the field for delivery.
 - Port Code to a Raspberry Pi Rover: the custom designed rover should be able to travel quickly across rugged terrain.
 
-#### Choices, Trade-Offs, Compromises
+### Choices, Trade-Offs, Compromises
 Because Turtlebots are already well integrated with ROS and rviz, we decided to write the code for a turtlebot, refine our algorithms, and then port the code to the custom hardware where we will face many small challenges such as marking the velocity of the wheels with encoders and using a CAD drawing to map our rover in rviz.
 
-#### Challenges 
+### Challenges 
 
-Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
-![]()
+#### Locating the AR Tag: 
+- Creating the launch file to leverage the Kinect camera was difficult.  It required finding the correct topics to use for the camera and adding/adjusting all the correct parameters to the file.
+- Maintaining visual contact and keeping the tag in range was hard to do as the bot moved around the space.  We needed to find a way to store and reference the location of the AR tag upon initial visualization so once the AR tag was seen, we sent the pose as a goal to move_base.
+
+#### Moving to AR Tag and Stop
+- Getting the bot to stop at a specific distance from the AR tag.
+- Producing the twist to rotate.
+
+#### Localizing the bot in global frame
+- Getting a clean map of the lab
+- Ensuring the bot recognizes the accurate location and orientation
+
+#### Generating the local obstacle costmap
+- Physically moving hte bot confused it and placed obstacles where there were none
+
+#### Finding the right height of an obstacle
+- Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
+![FASTbot taps edges of block box video]()
+
+#### Patrolling an area
+- Waiting for new request at home vs destination
+- Recognizing bot is not at home if it can't find the AR tag
+
+#### Following instructions
+- Producing the quaternion to have the bot move right and left
+- Inexact rotation/distance for patrol due to 80 degree spinScan
+
 
 ## Implementation
 Meet the real FASTbot and his sidekicks, the AR tags.
@@ -38,7 +63,7 @@ Meet the real FASTbot and his sidekicks, the AR tags.
 
 Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics platform with a Microsoft Kinect sensor designed for the Xbox 360 gaming console. The Kobuki is a mobile base with sensors, motors and power sources that allow it to have highly accurate odometry. The project incorporated the Kinect sensor with the use of both the RGB camera and depth sensitivity functions of the device to identify ARTags and avoid obstacles, respectively.  Laser cut stands and ¼-inch dowel rods were used as stands for laminated ARTags to mark home, pick-up, and drop-off locations for testing and demonstrative purposes. 
 
-#### rqt_graphs
+### rqt_graphs
 ![Active Nodes with no Instructions](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Active%20Nodes%20when%20no%20instructions%20passed.jpeg)
 
 ![Active Nodes with Instructions](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/ActiveNodes%20when%20instruction%20passed.jpeg)
@@ -47,10 +72,10 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 
 ![ROS Graph with no Instructions](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/RosGraph%20when%20no%20instruction%20passed.jpeg)
 
-#### System Diagram
+### System Diagram
 ![SystemDiagram](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/System%20Diagram.jpeg)
 
-#### Software Implementation
+### Software Implementation
 
 File | Type | Role
 ------------ | ------------- | -------------
