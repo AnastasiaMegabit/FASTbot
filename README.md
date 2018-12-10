@@ -39,8 +39,7 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 ![SystemDiagram]()
 
 #### Software Implementation
-First Header | Second Header | Third Header
------------- | ------------- | -------------
+
 File | Type | Role
 ------------ | ------------- | -------------
 run_kinect | launch | The file is responsible for how the Kinect’s camera interprets the AR . It takes in the expected dimensions of the AR Tags, tolerances as well as frames with respect to whom the AR Tag transforms should be calculated. In addition it takes in node names and resolution information. It utilizes ar_track_alvar package functionalities to help the FASTbot recognize the tag of interest. 
