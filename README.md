@@ -28,6 +28,9 @@ Because Turtlebots are already well integrated with ROS and rviz, we decided to 
 
 #### Challenges 
 
+Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
+![]()
+
 ## Implementation
 Meet the real FASTbot and his sidekicks, the AR tags.
 
@@ -53,7 +56,7 @@ findAR | python | This file is responsible for wai
 
 Our bot achieved many goals successfully...
 
-! [Visits multiple locations](https://youtu.be/opSDcrUvaFI)
+![Visits multiple locations]()
 
 ## Conclusion
 
