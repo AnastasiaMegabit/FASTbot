@@ -65,6 +65,8 @@ findAR | python | This file is responsible for wai
 
 Our bot achieved many goals successfully...
 
+![Achieved Goals](https://github.com/AnastasiaMegabit/FASTbot/blob/master/Achieved%20Goals.jpeg)
+
 ![Visits multiple locations]()
 
 ![Patrols when AR tag is not visable]()
