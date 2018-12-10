@@ -53,7 +53,7 @@ findAR | python | This file is responsible for wai
 
 Our bot achieved many goals successfully...
 
-![Visits multiple locations](https://youtu.be/opSDcrUvaFI)
+! [Visits multiple locations](https://youtu.be/opSDcrUvaFI)
 
 ## Conclusion
 
