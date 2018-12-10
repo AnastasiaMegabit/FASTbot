@@ -66,6 +66,16 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 ### System Diagram
 ![SystemDiagram](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/System%20Diagram.jpeg)
 
+Imagine FASTbot being used in the real world for a moment...
+
+A dispatcher would come in each morning and turn on the bots.  They would sit at home and wait to be dispatched.  Our code accounts for this.  When instructions.py is started, the bot recognizes it is at home and waits for the first instruction of the day to be given.
+
+When needed, a dispatcher can feed pickup or drop off commands to the bot simply by entering [pickup/dropoff #]* any number of times.  The bot will recieve and parse the commands its been given, executing them one set at a time.  It calls pickup or dropoff depending on the command and uses the number entered to assign the destination AR marker.
+
+Once parsed, it then calls goToAR which leverages move_base.  goToAR calls findAR which uses spinScan, spin, scanAR, and patrol functions to move right and left to come up with a goal based on the location of the AR tag or calls requests a new instruction, if no AR tag can be found.  The goal is then sent back to goToAR and passes the goal into move_base.
+
+From there, the bot navigates to its destination.  If there are further instructions, the bot cycles through them all until there are no more.  Once completeed, the bot requests a new instruction.  If no instructions are given for a designated timeout threshold of 20 seconds, it will search for and return to the AR tag designated as home.  Once home, it sits and waits indefinitely for instructions and at the end of the day, the dispatcher will shut them down again.
+
 ### Software Implementation
 
 File | Type | Role
