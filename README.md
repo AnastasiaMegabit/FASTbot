@@ -23,13 +23,38 @@ We wanted to design a bot that would receive requests from a dispatcher to auton
 - Facial Recognition: the bot should use facial recognition to identify a particular person in the field for delivery.
 - Port Code to a Raspberry Pi Rover: the custom designed rover should be able to travel quickly across rugged terrain.
 
-#### Choices, Trade-Offs, Compromises
+### Choices, Trade-Offs, Compromises
 Because Turtlebots are already well integrated with ROS and rviz, we decided to write the code for a turtlebot, refine our algorithms, and then port the code to the custom hardware where we will face many small challenges such as marking the velocity of the wheels with encoders and using a CAD drawing to map our rover in rviz.
 
-#### Challenges 
+### Challenges 
 
-Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
-![]()
+#### Locate the AR Tag: 
+- Creating the launch file to leverage the Kinect camera
+- Maintaining visual contact and keeping the tag in range
+
+#### Move to AR Tag and Stop
+- Getting the bot to stop at a specific distance from the AR tag.
+- Producing the twist to rotate.
+
+#### Localization of bot in global frame
+- Getting a clean map of the lab
+- Ensuring the bot recognizes the accurate location and orientation
+
+#### Generate local obstacle costmap
+- Physically moving hte bot confused it and placed obstacles where there were none
+
+#### Height of the obstacle
+- Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
+![FASTbot taps edges of block box video]()
+
+#### Patrol an area
+- Waiting for new request at home vs destination
+- Recognizing bot is not at home if it can't find the AR tag
+
+#### Follow instructions
+- Producing the quaternion to have the bot move right and left
+- Inexact rotation/distance for patrol due to 80 degree spinScan
+
 
 ## Implementation
 Meet the real FASTbot and his sidekicks, the AR tags.
