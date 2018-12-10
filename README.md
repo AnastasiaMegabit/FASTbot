@@ -2,10 +2,13 @@
 A First Aid Supply Transport Robot
 ![FASTbot](https://1712507217.rsc.cdn77.org/wp-content/uploads/2016/08/medical-robot.jpg)
 
+## FASTbot in the Real World
+
+It was important to our team to solve for a real world problem.  In emergency and distaster situations, first responders are always short-handed.  Doctors and Paramedics in the field will run low on supplies and have to return to the triage tent to replsnish them.  FASTbot can help with that.
 
 ## Objectives and Goals
 
-We wanted to design a bot that would receive requests from a dispatcher to autonomously pick up and deliver supplies to specific spots over an unpredictable, rough terrain by using dynamic and simultaneous localization and mapping.  AR Markers were meant to represent pick up and drop off locations,  to later be replaced with color block recognition for locating pick ups at the Red Cross tent and facial recognition to locate particular people in the field for delivery.  In this type of emergency environment, we expected the bot to be able to identify and navigate to a specified destination while dynamically avoiding static or dynamic obstacles. 
+We wanted to design a bot that would receive requests from a dispatcher to autonomously pick up and deliver supplies to specific spots over unpredictable, rough terrain by using dynamic and simultaneous localization and mapping.  AR Markers were meant to represent pick up and drop off locations, to later be replaced with color block recognition for locating pick ups at the Red Cross tent and facial recognition to locate particular people in the field for delivery.  In this type of emergency environment, we expected the bot to be able to identify and navigate to a specified destination while dynamically avoiding static or dynamic obstacles and manuver rocky ground. 
 
 
 ## Motivation
@@ -15,10 +18,12 @@ In labs, we have seen concepts quantized as weekly packets of different ideas an
 From a more general standpoint, there has been a lot of effort being invested into creating bots that relieve some stress imposed on search and rescue teams and triage nurses in field hospitals. More generally, there is always going to be a need to develop technology that allows for accessibility, portability and some level of autonomy in the healthcare or disaster management sector. Our project will allow us to get a taste of the challenges and design decisions required to fulfill the goal of the carrier bot to deliver first aid kits in unpredictable and rough terrain. 
 
 ## Design
+
 #### Measurable Goals
 - Command Based Autonomous Navigation
 - AR Tag Recognition
 - Obstacle Avoidance
+
 #### Stretch Goals
 - First Aid Box Loop
 - Color Block Recognition
@@ -27,7 +32,7 @@ From a more general standpoint, there has been a lot of effort being invested in
 
 #### Choices, Trade-Offs, Compromises
 
-#### Design Challenges 
+#### Challenges 
 
 ## Implementation
 
