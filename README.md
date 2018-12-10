@@ -13,7 +13,7 @@ We wanted to design a bot that would receive requests from a dispatcher to auton
 ## Design
 
 #### Measurable Goals
-- Command Based Autonomous Navigation: a dispatcher should be able to feed locations to the bot for pickup and drop off.
+- Command Based Autonomous Navigation: a dispatcher should be able to feed locations to the bot for pickup and drop off without any additional interaction.
 - AR Tag Recognition: AR tags will be used for identifying pickup and drop off locations.
 - Obstacle Avoidance: the bot should avoid both static and dynamic obstacles in its path.
 
