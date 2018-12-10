@@ -35,6 +35,23 @@ Meet the real FASTbot and his sidekicks, the AR tags.
 
 Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics platform with a Microsoft Kinect sensor designed for the Xbox 360 gaming console. The Kobuki is a mobile base with sensors, motors and power sources that allow it to have highly accurate odometry. The project incorporated the Kinect sensor with the use of both the RGB camera and depth sensitivity functions of the device to identify ARTags and avoid obstacles, respectively.  Laser cut stands and ¼-inch dowel rods were used as stands for laminated ARTags to mark home, pick-up, and drop-off locations for testing and demonstrative purposes. 
 
+#### System Diagram
+![SystemDiagram]()
+
+#### Software Implementation
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+File | Type | Role
+------------ | ------------- | -------------
+run_kinect | launch | The file is responsible for how the Kinect’s camera interprets the AR . It takes in the expected dimensions of the AR Tags, tolerances as well as frames with respect to whom the AR Tag transforms should be calculated. In addition it takes in node names and resolution information. It utilizes ar_track_alvar package functionalities to help the FASTbot recognize the tag of interest. 
+instructions | python | This file is the file responsible for interacting with the user, processing and decoding the instructions.  It communicates with the rest of the python files to ensure the user’s input goal is achieved. If there is no instruction fed in, it will wait for 20 seconds after which it will send a goal to the FASTbot to go home.
+goToAR | python | This file is responsible for implementing the path to go to an AR tag. It relies heavily on tf2 ros package to look up transforms between the tag and it’s base_link to later on head towards the AR tag. It uses findAR to first make sure that the AR Tag of interest can be seen. 
+findAR | python | This file is responsible for wai
+
+
+
 ## Results
 
 ## Conclusion
