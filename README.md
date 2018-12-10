@@ -30,7 +30,9 @@ Because Turtlebots are already well integrated with ROS and rviz, we decided to 
 
 ## Implementation
 Meet the real FASTbot and his sidekicks, the AR tags.
+
 ![FASTbot](https://drive.google.com/file/d/1tOKX6__ECyRHoTidm_Hed8psBb_ghxj1/view?usp=sharing)
+
 Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics platform with a Microsoft Kinect sensor designed for the Xbox 360 gaming console. The Kobuki is a mobile base with sensors, motors and power sources that allow it to have highly accurate odometry. The project incorporated the Kinect sensor with the use of both the RGB camera and depth sensitivity functions of the device to identify ARTags and avoid obstacles, respectively.  Laser cut stands and ¼-inch dowel rods were used as stands for laminated ARTags to mark home, pick-up, and drop-off locations for testing and demonstrative purposes. 
 
 ## Results
