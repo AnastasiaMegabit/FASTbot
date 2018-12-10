@@ -33,15 +33,15 @@ Because Turtlebots are already well integrated with ROS and rviz, we decided to 
 - Maintaining visual contact and keeping the tag in range was hard to do as the bot moved around the space.  We needed to find a way to store and reference the location of the AR tag upon initial visualization so once the AR tag was seen, we sent the pose as a goal to move_base.
 
 #### Moving to AR Tag and Stop
-- Getting the bot to stop at a specific distance from the AR tag took some thought.  The bot uses the pose of the AR tag as a move base goal.  It continues to move towards the goal until it is in that spot so we had to 
-- Producing the twist to rotate.
+- Getting the bot to stop at a specific distance from the AR tag took some thought.  The bot uses the pose of the AR tag as a move_base goal.  It continues to move towards the goal until it is in that spot so we had to tell the bot that its actual goal was a delta distance from the AR tag pose.
+- Producing the twist to rotate was a task.  Understanding how to use the linear and angular variables to move the bot in 3D space took us a great deal of time to figure out.  The linear x is a negative value for moving forward and rotations required the right angular velocity in conjunction with the right linear x as well.
 
 #### Localizing the bot in global frame
-- Getting a clean map of the lab
-- Ensuring the bot recognizes the accurate location and orientation
+- Ensuring the bot recognizes the accurate location and orientation were important for the bot to navigate to the correct goal pose of the AR tag.  If the bot did not start at the right place on the global map and then tried to navigate to the AR tag, the bot could move to the wrong spot but think it is where its supposed to go.
 
 #### Generating the local obstacle costmap
-- Physically moving hte bot confused it and placed obstacles where there were none
+- Getting a clean map of the lab was critical for the bot to correctly predict where the obstacles were in the local costmap. It took awhile for us to identify this as the issue but once we did, we were able to clear the small marks on the map away and give the bot clean white space on the floor.  At that point, it was able to update the local costmap easily any time it moved around.
+- Physically lifting and moving bot confused it and placed obstacles where there were none.  We eventually found that if we used the 2D pose estimate and 2D nav goal features in the rviz visualization tool, the bot had no trouble keeping a current obstacle map.
 
 #### Finding the right height of an obstacle
 - Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
