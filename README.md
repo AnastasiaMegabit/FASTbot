@@ -98,6 +98,7 @@ Our bot achieved many goals successfully...
 ![Patrols when AR tag is not visable]()
 
 ![Avoids static and dynamic obstacles]()
+
 [FASTbot Full Demo](https://www.youtube.com/embed/YjjWvV42Nm4)
 
 
