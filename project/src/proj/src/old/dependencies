@@ -1,0 +1,16 @@
+catkin rospy roscpp std_msgs message_generation image_transport message_runtime cv_bridge tf amcl base_local_planner carrot_planner clear_costmap_recovery costmap_2d dwa_local_planner fake_localization global_planner map_server move_base move_base_msgs move_slow_and_clear nav_core navfn rotate_recovery voxel_grid ar_track_alvar_msgs cmake_modules dynamic_reconfigure geometry_msgs pcl_conversions pcl_ros resource_retriever sensor_msgs tf tf2 visualization_msgs genmsg message_filters sensor_msgs std_srvs actionlib actionlib_msgs roslib
+
+
+
+// run_kinect old
+<launch>
+	<arg name="marker_size" default="17.7" />
+	<arg name="max_new_marker_error" default="0.08" />
+	<arg name="max_track_error" default="0.2" />
+
+	<arg name="cam_image_topic" default="/camera/rgb/image_raw" />
+	<arg name="cam_info_topic" default="/camera/rgb/camera_info" />		
+	<arg name="output_frame" default="/base_link" />
+
+	<node name="kinect_cam" pkg="ar_track_alvar" type="IndividualMarkers" respawn="false" output="screen" args="$(arg marker_size) $(arg max_new_marker_error) $(arg max_track_error) $(arg cam_image_topic) $(arg cam_info_topic) $(arg output_frame)" />
+</launch>
