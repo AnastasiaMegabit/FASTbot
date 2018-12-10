@@ -51,6 +51,10 @@ findAR | python | This file is responsible for wai
 
 ## Results
 
+Our bot achieved many goals successfully...
+
+![Visits multiple locations](https://youtu.be/opSDcrUvaFI)
+
 ## Conclusion
 
 ## Team
