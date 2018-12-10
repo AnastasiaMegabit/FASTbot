@@ -2,7 +2,7 @@
 
 ![FASTbot](https://1712507217.rsc.cdn77.org/wp-content/uploads/2016/08/medical-robot.jpg)
 
-## A First Aid Supply Transport Robot
+### A First Aid Supply Transport Robot
 
 It was important to our team to solve for a real world problem.  In emergency and disaster situations, first responders are always short-handed.  Doctors and Paramedics in the field will run low on supplies and have to return to the triage tent to replenish them.  FASTbot can help with that.
 
