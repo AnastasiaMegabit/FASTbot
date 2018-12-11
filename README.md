@@ -30,7 +30,7 @@ The main design choice we had to deal with in the beginning of our planning phas
 - we had begun assembling the body of the rover 
 - we believed it would be suitable for the rough, unpredictable terrain we expected for a carrier bot, 
 
-but later on, we decided to choose the turtlebot 2, mainly because unlike the rover it was well integrated with ROS and rviz and was fully functional. This would allow us to focus on the actual implementation of the algorithm for a carrier bot, run the algorithm several times and refine it and then port it to the custom hardware for the raspberry pi rover where we would inevitably have to work through many other challenges such as installing encoders to control the trajectory and velocity of the bot given the huge tires and create a custom URDF file for our rover in rviz. 
+but later on, we decided to choose the TurtleBot 2, mainly because unlike the rover it was well integrated with ROS and rviz and was fully functional. This would allow us to focus on the actual implementation of the algorithm for a carrier bot, run the algorithm several times and refine it and then port it to the custom hardware for the raspberry pi rover where we would inevitably have to work through many other challenges such as installing encoders to control the trajectory and velocity of the bot given the huge tires and create a custom URDF file for our rover in rviz. 
 
 
 ### Challenges 
@@ -50,8 +50,9 @@ but later on, we decided to choose the turtlebot 2, mainly because unlike the ro
 - Getting a clean map of the lab was critical for the bot to correctly predict where the obstacles were in the local costmap. It took awhile for us to identify this as the issue but once we did, we were able to clear the small marks on the map away and give the bot clean white space on the floor.  At that point, it was able to update the local costmap easily any time it moved around.
 - Physically lifting and moving bot confused it and placed obstacles where there were none.  We eventually found that if we used the 2D pose estimate and 2D nav goal features in the rviz visualization tool, the bot had no trouble keeping a current obstacle map.
 
-#### Finding the Right Height for Obstacles
-- When we were experimenting with the limitations of height for obstacles that the bots could void, we realized that the obstacle had to be of a certain height before the bot could fully estimate it's dimensions. While the bot could easily acknowledge the presence of an obstacle for any size, the edges of the obstacles for a shorter one seemed little fuzzy in it's local costmap and it didn't navigate it well.
+#### Obstacle Avoidance
+- When we first began thinking of the best way to avoid obstacles, ..... (Need to talk about Mark Silliman here too)
+- While experimenting with move_base to determine limitations of obstacle avoidance for the bot, we realized that the obstacle had to be of a certain height before the bot could fully estimate it's dimensions. While the bot could easily acknowledge the presence of an obstacle for any size, the edges of a shorter obstacle seemed a little fuzzy in the bot's local costmap and therefore, it was not able to navigate them well. We therefore, had to ensure obstacles were approximately above the kinect's height on the bot for clear edge detection in the local costmap.
 [![FASTbot taps edges of block box video](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_Blooper.png)](https://youtu.be/XcfFtEHvWSk "FASTbot taps edges of block box video")
 
 #### Patrolling an Area
@@ -73,15 +74,14 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 ### System Diagram
 ![SystemDiagram](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/System%20Diagram.jpeg)
 
-Imagine FASTbot being used in the real world for a moment...
+A dispatcher would come in, each morning and turn on the bots.  They would sit at home and wait to be dispatched.  Our code accounts for this.  When instructions.py is started, the bot recognizes it is at home and waits for the first instruction of the day to be given.
 
-A dispatcher would come in each morning and turn on the bots.  They would sit at home and wait to be dispatched.  Our code accounts for this.  When instructions.py is started, the bot recognizes it is at home and waits for the first instruction of the day to be given.
+When needed, a dispatcher can feed pickup or drop off commands to the bot simply by entering [pickup/dropoff #]* any number of times.  The bot will recieve and parse the commands its been given, executing them one set at a time.  It calls pickup or dropoff depending on the command and uses the number entered to assign the destination ARTag.
 
-When needed, a dispatcher can feed pickup or drop off commands to the bot simply by entering [pickup/dropoff #]* any number of times.  The bot will recieve and parse the commands its been given, executing them one set at a time.  It calls pickup or dropoff depending on the command and uses the number entered to assign the destination AR marker.
+Once parsed, it then calls goToAR.py which leverages move_base.  goToAR.py calls findAR.py (which uses methods such as spinScan, spin, scanAR, and patrol) to confirm the presence of the ARTag of interest in the bot's vicinity. If findAR.py cannot find the ARTag of interest, goToAR.py requests the dispatcher for a new instruction. If findAR.py can find the ARTag of interest, goToAR.py comes up with a move_base goal based on the position and orientation of the ARTag.
 
-Once parsed, it then calls goToAR which leverages move_base.  goToAR calls findAR which uses spinScan, spin, scanAR, and patrol functions to move right and left to come up with a goal based on the location of the AR tag or calls requests a new instruction, if no AR tag can be found.  The goal is then sent back to goToAR and passes the goal into move_base.
+From there, the bot navigates to the provided move_base goal.  If there are further instructions, the bot cycles through all of them until there are no more.  On completion, the bot requests a new instruction.  If no instructions are given for a designated timeout threshold of 20 seconds, it will search for and return to the ARTag designated as home.  Once home, it sits and waits indefinitely for instructions and at the end of the day, the dispatcher will shut them down again.
 
-From there, the bot navigates to its destination.  If there are further instructions, the bot cycles through them all until there are no more.  Once completeed, the bot requests a new instruction.  If no instructions are given for a designated timeout threshold of 20 seconds, it will search for and return to the AR tag designated as home.  Once home, it sits and waits indefinitely for instructions and at the end of the day, the dispatcher will shut them down again.
 
 ### Software Implementation
 
