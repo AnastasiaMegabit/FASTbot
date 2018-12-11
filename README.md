@@ -95,7 +95,7 @@ Our bot achieved many goals successfully...
 
 ![Visits multiple locations]()
 
-![Patrols when AR tag is not visable]()
+[![Patrols when AR tag is not visable](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_patrol.png)](https://youtu.be/v3bBYx6qFfA "Patrols when AR tag is not visable")
 
 [![Avoids static and dynamic obstacles](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Static_Dynamic_Obs_Avoid_Screenshot.png)](https://www.youtube.com/watch?v=7iK36OHjpcs "Avoids static and dynamic obstacles")
 
