@@ -46,7 +46,7 @@ Because Turtlebots are already well integrated with ROS and rviz, we decided to 
 
 #### Finding the right height of an obstacle
 - Sometimes the object would not be high enough for the bot to be certain it was an obstacle.  It recognized it needed to move around something but the edges were a little fuzzy and it didn't navigate it well.
-![FASTbot taps edges of block box video]()
+[![FASTbot taps edges of block box video](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_Blooper.png)](https://youtu.be/XcfFtEHvWSk "FASTbot taps edges of block box video")
 
 #### Patrolling an area
 - Waiting for new request at home vs destination
