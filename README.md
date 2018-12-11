@@ -80,7 +80,7 @@ When needed, a dispatcher can feed pickup or drop off commands to the bot simply
 
 Once parsed, it then calls goToAR.py which leverages move_base.  goToAR.py calls findAR.py (which uses methods such as spinScan, spin, scanAR, and patrol) to confirm the presence of the ARTag of interest in the bot's vicinity. If findAR.py cannot find the ARTag of interest, goToAR.py requests the dispatcher for a new instruction. If findAR.py can find the ARTag of interest, goToAR.py comes up with a move_base goal based on the position and orientation of the ARTag.
 
-From there, the bot navigates to the provided move_base goal.  If there are further instructions, the bot cycles through all of them until there are no more.  On completion, the bot requests a new instruction.  If no instructions are given for a designated timeout threshold of 20 seconds, it will search for and return to the ARTag designated as home.  Once home, it sits and waits indefinitely for instructions and at the end of the day, the dispatcher will shut them down again.
+From there, the bot navigates to the provided move_base goal.  If there are further instructions, the bot cycles through all of them until there are no more.  Once completed, the bot requests a new instruction.  If no instructions are given for a designated timeout threshold of 20 seconds, it will search for and return to the ARTag designated as home.  Once home, it sits and waits indefinitely for instructions and at the end of the day, the dispatcher will shut them down again.
 
 
 ### Software Implementation
