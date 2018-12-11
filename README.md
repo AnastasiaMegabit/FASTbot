@@ -25,7 +25,7 @@ We wanted to design a bot that would receive requests from a dispatcher to auton
 ## Design
 
 ### Choices, Trade-Offs, Compromises
-Because Turtlebots are already well integrated with ROS and rviz, we decided to write the code for a turtlebot, refine our algorithms, and then port the code to the custom hardware where we will face many small challenges such as marking the velocity of the wheels with encoders and using a CAD drawing to map our rover in rviz.
+Because Turtlebots are already well integrated with ROS and rviz, we decided to write the code for a turtlebot, refine our algorithms, and then port the code to the custom hardware where we will face many small challenges such as marking the velocity of the wheels with encoders and creating a custom URDF file for our rover in rviz.
 
 ### Challenges 
 
