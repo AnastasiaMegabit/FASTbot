@@ -29,6 +29,7 @@ The main design choice we had to deal with in the beginning of our planning phas
 - we had inventoried all the materials we would need including the sensors, main frame, chassises and tires for the rover
 - we had begun assembling the body of the rover 
 - we believed it would be suitable for the rough, unpredictable terrain we expected for a carrier bot, 
+
 but later on, we decided to choose the turtlebot 2i, mainly because, it was already well integrated with ROS and rviz which in turn, would allow us to focus on the actual implementation of the algorithm for a carrier robot, refine it and then port the code to the custom hardware for a raspberry pi rover where we would inevitably have to work through many other challenges such as installing encoders to control the trajectory and velocity of the bot given the huge tires and create a custom URDF file for our rover in rviz. 
 
 
@@ -38,7 +39,7 @@ but later on, we decided to choose the turtlebot 2i, mainly because, it was alre
 - Creating the launch file to leverage the Kinect camera was difficult. It required finding the correct topics to use for the camera and adding/adjusting the correct parameters to the file such as the ROS topic for the camera's information versus the ROS topic for the image's information with respect to the camera.
 - Ensuring that the ARTag was always in sight to be able to determine it's pose was challenging because the bot also had to avoid obstacles while heading to the ARTag. We needed to find a way to store the location of the ARTag with respect to a fixed frame, the global frame upon it's initial visualization so that we could leverage this pose as a goal for move_base.
 
-#### Moving to the AR Tag and Stopping
+#### Moving to the ARTag and Stopping
 - Getting the bot to stop at a specific distance from the AR tag took some thought. The bot used  the pose of the AR tag as a move_base goal and thus, would get confused since the ARTag itself was also an obstacle. We had to make sure we accounted for delta distance from the ARTag pose in the move_base goal. This delta distance also was a culmination of sveeral trial and errors. 
 - Producing the twist to rotate the bot to a desirable position took some effort too. We realised that the linear x position is a negative value for moving forward and rotations required the right angular velocity in conjunction with a small linear x value to ensure smoother rotations.
 
