@@ -24,21 +24,26 @@ We wanted to design a bot that would receive requests from a dispatcher to auton
 
 ## Design
 
-### Choices, Trade-Offs, Compromises
-Because Turtlebots are already well integrated with ROS and rviz, we decided to write the code for a turtlebot, refine our algorithms, and then port the code to the custom hardware where we will face many small challenges such as marking the velocity of the wheels with encoders and creating a custom URDF file for our rover in rviz.
+### Choices
+The main design choice we had to deal with in the beginning of our planning phase was the bot we wished to use. We initially planned on working on a raspberry pi rover. This is mainly because 
+- we had inventoried all the materials we would need including the sensors, main frame, chassises and tires for the rover
+- we had begun assembling the body of the rover 
+- we believed it would be suitable for the rough, unpredictable terrain we expected for a carrier bot, 
+but later on, we decided to choose the turtlebot 2i, mainly because, it was already well integrated with ROS and rviz which in turn, would allow us to focus on the actual implementation of the algorithm for a carrier robot, refine it and then port the code to the custom hardware for a raspberry pi rover where we would inevitably have to work through many other challenges such as installing encoders to control the trajectory and velocity of the bot given the huge tires and create a custom URDF file for our rover in rviz. 
+
 
 ### Challenges 
 
-#### Locating the AR Tag: 
-- Creating the launch file to leverage the Kinect camera was difficult.  It required finding the correct topics to use for the camera and adding/adjusting all the correct parameters to the file.
-- Maintaining visual contact and keeping the tag in range was hard to do as the bot moved around the space.  We needed to find a way to store and reference the location of the AR tag upon initial visualization so once the AR tag was seen, we sent the pose as a goal to move_base.
+#### Locating an ARTag
+- Creating the launch file to leverage the Kinect camera was difficult. It required finding the correct topics to use for the camera and adding/adjusting the correct parameters to the file such as the ROS topic for the camera's information versus the ROS topic for the image's information with respect to the camera.
+- Ensuring that the ARTag was always in sight to be able to determine it's pose was challenging because the bot also had to avoid obstacles while heading to the ARTag. We needed to find a way to store the location of the ARTag with respect to a fixed frame, the global frame upon it's initial visualization so that we could leverage this pose as a goal for move_base.
 
-#### Moving to AR Tag and Stop
-- Getting the bot to stop at a specific distance from the AR tag took some thought.  The bot uses the pose of the AR tag as a move_base goal.  It continues to move towards the goal until it is in that spot so we had to tell the bot that its actual goal was a delta distance from the AR tag pose.
-- Producing the twist to rotate was a task.  Understanding how to use the linear and angular variables to move the bot in 3D space took us a great deal of time to figure out.  The linear x is a negative value for moving forward and rotations required the right angular velocity in conjunction with the right linear x as well.
+#### Moving to the AR Tag and Stopping
+- Getting the bot to stop at a specific distance from the AR tag took some thought. The bot used  the pose of the AR tag as a move_base goal and thus, would get confused since the ARTag itself was also an obstacle. We had to make sure we accounted for delta distance from the ARTag pose in the move_base goal. This delta distance also was a culmination of sveeral trial and errors. 
+- Producing the twist to rotate the bot to a desirable position took some effort too. We realised that the linear x position is a negative value for moving forward and rotations required the right angular velocity in conjunction with a small linear x value to ensure smoother rotations.
 
-#### Localizing the bot in global frame
-- Ensuring the bot recognizes the accurate location and orientation were important for the bot to navigate to the correct goal pose of the AR tag.  If the bot did not start at the right place on the global map and then tried to navigate to the AR tag, the bot could move to the wrong spot but think it is where its supposed to go.
+#### Localizing the bot in the Global Frame
+- Ensuring the bot recognized it's own position and orientation on the the global map of the lab was important for navigating to an AR Tag while using move_base.  If the bot could not localize itself appropriately, it would mis calculate the pose of the ARTag of interest and go to a place that did not have the actual ARTag. This required us to launch rviz everytime we launched other important files to ensure we could set the 2D Pose of the bot manually. 
 
 #### Generating the local obstacle costmap
 - Getting a clean map of the lab was critical for the bot to correctly predict where the obstacles were in the local costmap. It took awhile for us to identify this as the issue but once we did, we were able to clear the small marks on the map away and give the bot clean white space on the floor.  At that point, it was able to update the local costmap easily any time it moved around.
