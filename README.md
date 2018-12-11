@@ -99,11 +99,11 @@ Our bot achieved many goals successfully...
 
 ![Achieved Goals](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Achieved%20Goals.jpeg)
 #### Visits Multiple Locations
-[![Visits multiple locations](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Multiple_Loc.png)]( https://youtu.be/yvhe6k0q9xY "Visits Multiple Locations")
-#### Patrols when AR tag is not visible
-[![Patrols when AR tag is not visible](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_patrol.png)](https://youtu.be/v3bBYx6qFfA "Patrols when ARTag is Not Visible")
-#### Avoids static and dynamic obstacles
-[![Avoids static and dynamic obstacles](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Static_Dynamic_Obs_Avoid_Screenshot.png)](https://www.youtube.com/watch?v=7iK36OHjpcs "Avoids Static and Dynamic Obstacles")
+[![Visits multiple locations](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Multiple_Loc.png)]( https://youtu.be/yvhe6k0q9xY "Visits multiple locations")
+#### Patrols when ARTag is Not Visible
+[![Patrols when AR tag is not visible](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_patrol.png)](https://youtu.be/v3bBYx6qFfA "Patrols when AR tag is not visible")
+#### Avoids Static and Dynamic Obstacles
+[![Avoids static and dynamic obstacles](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Static_Dynamic_Obs_Avoid_Screenshot.png)](https://www.youtube.com/watch?v=7iK36OHjpcs "Avoids static and dynamic obstacles")
 #### FASTbot Full Demo
 [![FASTbot Full Demo](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot%20Full%20Feature%20Demo%20YouTube%20ScreenShot.png)](https://www.youtube.com/embed/YjjWvV42Nm4 "FASTbot Full Demo")
 
