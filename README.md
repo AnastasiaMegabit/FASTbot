@@ -119,7 +119,7 @@ Our team provided highly successful overall, achieving all of our measurable goa
 ![]()
 #### Mariyam Jivani
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
-#### Anastasia Scott
+#### Anastasia Scott - Electrical Engineering and Computer Science senior at University of California, Berkeley
 ![]()
 #### Robert Hoogsteden
 
