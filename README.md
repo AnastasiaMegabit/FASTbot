@@ -26,7 +26,7 @@ We wanted to design a bot that would receive requests from a dispatcher to auton
 
 ### Choices
 The main design choice we had to deal with in the beginning of our planning phase was the bot we wished to use. Initially, we planned on working on a raspberry pi rover. We chose this mainly because of the following reasons:
-- We had inventoried all the materials we would need including the sensors, main frame, chassises and tires for the rover.
+- We had inventoried all the materials we would need including the sensors, main frame, chassis and tires for the rover.
 - We had begun assembling the body of the rover,
 - We believed it would be suitable for the rough, unpredictable terrain we expected for a carrier bot.
 
@@ -44,10 +44,11 @@ Shortly thereafter, we decided to use a Turtlebot 2 instead because, unlike the 
 - Producing the twist to rotate the bot to a desirable position took some effort too. We realized that the linear x position is a negative value for moving forward and rotations required the right angular velocity in conjunction with a small linear x value to ensure smooth rotations.
 
 #### Localizing the bot in the Global Frame
-- Ensuring the bot recognized it's own position and orientation on the the global map of the lab was important for navigating to an AR Tag while using move_base.  If the bot could not localize itself appropriately, it would mis calculate the pose of the ARTag of interest and go to a place that did not have the actual ARTag. This required us to launch rviz everytime we launched other important files to ensure we could set the 2D Pose of the bot manually. 
+- Ensuring the bot recognized its own position and orientation on the the global map of the lab was important for navigating to an AR Tag while using move_base.  If the bot could not localize itself appropriately, it would mis calculate the pose of the ARTag of interest and go to a place that did not have the actual ARTag. This required us to launch rviz everytime we launched other important files to ensure we could set the 2D Pose of the bot manually. 
 
 #### Generating the local obstacle costmap
 - Getting a clean map of the lab was critical for the bot to correctly predict where the obstacles were in the local costmap. It took awhile for us to identify this as the issue but once we did, we were able to clear the small marks on the map away and give the bot clean white space on the floor.  At that point, it was able to update the local costmap easily any time it moved around.
+![Setting a 2D pose](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/NavigationLaunchers.jpeg?raw=true)
 - Physically lifting and moving bot confused it and placed obstacles where there were none.  We eventually found that if we used the 2D pose estimate and 2D nav goal features in the rviz visualization tool, the bot had no trouble keeping a current obstacle map.
 
 #### Obstacle Avoidance
@@ -60,7 +61,7 @@ Shortly thereafter, we decided to use a Turtlebot 2 instead because, unlike the 
 - We found that we experienced an inexact rotation/distance for patrol due to our decision to use an 80 degree spinScan.  The choice to use this odd degree was because we wanted to make sure the tag would, at some point, be within the scope of the Kinect camera during its full spin but at the same time minimize the number of scans the bot would have to stop to make.  This meant that when the bot "turned to the left/right", it would be an offset from its starting position and the bot would not move exactly left or exactly right.  We decided this was acceptable considering the bot was simply patrolling a general area and not specifically required to go exactly left or right.
 
 #### Following instructions
-- Our bot was designed to request a new instruction from distpatch using the raw_input command.  This works beautifully when the dispatcher turns the bots in the morning and they sit at home waiting for instructions but it is problematic if the bot is in the field after its last pick up or dropoff.  The request was going to function the same but if the bot was in the field, it should only wait for a short time before returning home to get out of the way.  raw_input does not have a built in time out feature so we had to get creative. We found a creative use of an AlarmException and the signal class which we could tweak and leverage to call goHome after it waited for 20 seconds and which would then send an empty char to raw_input.
+- Our bot was designed to request a new instruction from dispatch using the raw_input command.  This works beautifully when the dispatcher turns the bots in the morning and they sit at home waiting for instructions but it is problematic if the bot is in the field after its last pickup or dropoff.  The request was going to function the same but if the bot was in the field, it should only wait for a short time before returning home to get out of the way.  raw_input does not have a built in time out feature so we had to get creative. We found a creative use of an AlarmException and the signal class which we could tweak and leverage to call goHome after it waited for 20 seconds and which would then send an empty char to raw_input.
 - Recognizing whether or not the bot is at home when it can't find the ARTag was a complication as well.  We found that if the bot patrolled and area but did not find a the AR tag for which it was looking, it would assume it was home and return to waiting for a new instruction.  We used a simple boolean value to account for this occasion.  If the bot left home initially, it recognized it was not home and would not again assume it was home unless goHome was called.
 
 
@@ -75,11 +76,11 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 ### System Diagram
 ![SystemDiagram](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/System%20Diagram.jpeg)
 
-To understand what FASTbot's day might look like in use at a field site, we offer the following walk through...
+To understand what FASTbot's day might look like in use at a field site, we offer the following walkthrough...
 
 A dispatcher would come in, each morning and turn on the bots.  They would then sit at home and wait to be dispatched.  Our code accounts for this.  When instructions.py is started, the bot recognizes it is at home and waits for the first instruction of the day to be given.
 
-When needed, a dispatcher can feed pickup or drop off commands to the bot simply by entering [pickup/dropoff #]* any number of times.  The bot will recieve and parse the commands its been given, executing them one set at a time.  It calls pickup or dropoff depending on the command and uses the number entered to assign the destination ARTag.
+When needed, a dispatcher can feed pickup or drop off commands to the bot simply by entering [pickup/dropoff #]* any number of times.  The bot will receive and parse the commands its been given, executing them one set at a time.  It calls pickup or dropoff depending on the command and uses the number entered to assign the destination ARTag.
 
 Once parsed, it then calls goToAR.py which leverages move_base.  goToAR.py calls findAR.py (which uses methods such as spinScan, spin, scanAR, and patrol) to confirm the presence of the ARTag requested in the bot's vicinity. If findAR.py cannot find the ARTag of interest, goToAR.py requests a new instruction from the dispatcher. If findAR.py can find the ARTag requested, goToAR.py comes up with a move_base goal based on the position and orientation of the ARTag.
 
@@ -112,17 +113,17 @@ Our bot achieved many goals successfully...
 
 
 ## Conclusion
-Our team provided highly successful overall, achieveing all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trival task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
+Our team provided highly successful overall, achieving all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trivial task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
 
 ## Team
 ![]()
-Mariyam Jivani
+#### Mariyam Jivani
 ![]()
-Anastasia Scott
+#### Anastasia Scott
 ![]()
-Robert Hoogsteden
+#### Robert Hoogsteden
 
-Our team worked collaboratively, taking turns typing on the main workstation and writing our code as a team.  Those of us not actively typing at the workstation had out our laptops and would take notes on the process or research issues we were facing at any given time.  Full participation was key in our success and each of the team members were responsible for at least two major code break throughs when we got stuck during the process.
+Our team worked collaboratively, taking turns typing on the main workstation and writing our code as a team.  Those of us not actively typing at the workstation had out our laptops and would take notes on the process or research issues we were facing at any given time.  Full participation was key in our success and each of the team members were responsible for at least two major code breakthroughs when we got stuck during the process.
 
 ## Appendix
 
@@ -131,9 +132,8 @@ Our team worked collaboratively, taking turns typing on the main workstation and
 
 ### Dispatcher Window
 - Rviz and terminal windows displaying what the system looks like to the dispatcher.
-![]()
-![]()
-![]()
+![Visualization and terminal windows](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Final%20Run%202b.jpeg?raw=true)
+![Patrolling terminal and visualization](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Full%20Patrol%20Terminal.jpeg?raw=true)
 
 ### rqt_graphs
 #### Active Nodes with No Instructions Given to the Bot
