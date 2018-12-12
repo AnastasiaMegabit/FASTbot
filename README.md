@@ -120,7 +120,7 @@ Our team provided highly successful overall, achieving all of our measurable goa
 
 ![]()
 #### Anastasia Scott 
-Electrical Engineering and Computer Science senior at University of California, Berkeley.  Most insterested in the fields of social robotics and interactive, assistive AI.
+Electrical Engineering and Computer Science senior at University of California, Berkeley.  Insterested in the fields of social robotics and assistive artificial intelligence.
 
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Robert Hoogsteden
