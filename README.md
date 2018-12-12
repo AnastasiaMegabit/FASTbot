@@ -118,7 +118,7 @@ Our team provided highly successful overall, achieving all of our measurable goa
 ## Team
 ![]()
 #### Mariyam Jivani
-![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott.jpg?raw=trues=100)
+![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Anastasia Scott
 ![]()
 #### Robert Hoogsteden
