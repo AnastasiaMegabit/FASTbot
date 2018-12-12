@@ -56,8 +56,8 @@ Shortly thereafter, we decided to use a Turtlebot 2 instead because, unlike the 
 [![FASTbot taps edges of block box video](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_Blooper.png)](https://youtu.be/XcfFtEHvWSk "FASTbot taps edges of block box video")
 
 #### Patrolling an Area
-- Producing the quaternion to have the bot move right and left was a new experience for our team and not as intuitive as we had hoped.  
-- Inexact rotation/distance for patrol due to 80 degree spinScan
+- Producing the quaternion to have the bot move right and left was a new experience for our team and not as intuitive as we had hoped.  It turns out it is hard for a human to think about what a quaternion looks like but much easier to think in terms of Euler's.  So, we chose to use a conversion function which takes in an Euler's angle and returns a quaternion rather than tinker with the quaternion directly.
+- We found that we experienced an inexact rotation/distance for patrol due to our decision to use an 80 degree spinScan.  The choice to use this odd degree was because we wanted to make sure the tag would, at some point, be within the scope of the Kinect camera during its full spin but at the same time minimize the number of scans the bot would have to stop to make.  This meant that when the bot "turned to the left/right", it would be an offset from its starting position and the bot would not move exactly left or exactly right.  We decided this was acceptable considering the bot was simply patrolling a general area and not specifically required to go exactly left or right.
 
 #### Following instructions
 - Our bot was designed to request a new instruction from distpatch using the raw_input command.  This works beautifully when the dispatcher turns the bots in the morning and they sit at home waiting for instructions but it is problematic if the bot is in the field after its last pick up or dropoff.  The request was going to function the same but if the bot was in the field, it should only wait for a short time before returning home to get out of the way.  raw_input does not have a built in time out feature so we had to get creative. We found a creative use of an AlarmException and the signal class which we could tweak and leverage to call goHome after it waited for 20 seconds and which would then send an empty char to raw_input.
@@ -75,11 +75,13 @@ Our FASTbot prototype uses the Kobuki model of the TurtleBot 2 open robotics pla
 ### System Diagram
 ![SystemDiagram](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/System%20Diagram.jpeg)
 
-A dispatcher would come in, each morning and turn on the bots.  They would sit at home and wait to be dispatched.  Our code accounts for this.  When instructions.py is started, the bot recognizes it is at home and waits for the first instruction of the day to be given.
+To understand what FASTbot's day might look like in use at a field site, we offer the following walk through...
+
+A dispatcher would come in, each morning and turn on the bots.  They would then sit at home and wait to be dispatched.  Our code accounts for this.  When instructions.py is started, the bot recognizes it is at home and waits for the first instruction of the day to be given.
 
 When needed, a dispatcher can feed pickup or drop off commands to the bot simply by entering [pickup/dropoff #]* any number of times.  The bot will recieve and parse the commands its been given, executing them one set at a time.  It calls pickup or dropoff depending on the command and uses the number entered to assign the destination ARTag.
 
-Once parsed, it then calls goToAR.py which leverages move_base.  goToAR.py calls findAR.py (which uses methods such as spinScan, spin, scanAR, and patrol) to confirm the presence of the ARTag of interest in the bot's vicinity. If findAR.py cannot find the ARTag of interest, goToAR.py requests the dispatcher for a new instruction. If findAR.py can find the ARTag of interest, goToAR.py comes up with a move_base goal based on the position and orientation of the ARTag.
+Once parsed, it then calls goToAR.py which leverages move_base.  goToAR.py calls findAR.py (which uses methods such as spinScan, spin, scanAR, and patrol) to confirm the presence of the ARTag requested in the bot's vicinity. If findAR.py cannot find the ARTag of interest, goToAR.py requests a new instruction from the dispatcher. If findAR.py can find the ARTag requested, goToAR.py comes up with a move_base goal based on the position and orientation of the ARTag.
 
 From there, the bot navigates to the provided move_base goal.  If there are further instructions, the bot cycles through all of them until there are no more.  Once completed, the bot requests a new instruction.  If no instructions are given for a designated timeout threshold of 20 seconds, it will search for and return to the ARTag designated as home.  Once home, it sits and waits indefinitely for instructions and at the end of the day, the dispatcher will shut them down again.
 
