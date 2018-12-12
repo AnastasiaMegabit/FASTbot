@@ -101,21 +101,39 @@ findAR | python | This file is responsible for confirming there exists a transfo
 Our bot achieved many goals successfully...
 
 ![Achieved Goals](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Achieved%20Goals.jpeg)
-#### Visits Multiple Locations
+#### FASTbot can be sent to multiple locations without having to return home between each dispatch.
 [![Visits multiple locations](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Multiple_Loc.png)]( https://youtu.be/yvhe6k0q9xY "Visits multiple locations")
-#### Patrols when ARTag is Not Visible
+#### When FASTbot cannot find the AR tag requested, it will patrol in search of one.
 [![Patrols when AR tag is not visible](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_patrol.png)](https://youtu.be/v3bBYx6qFfA "Patrols when AR tag is not visible")
-#### Avoids Static and Dynamic Obstacles
+#### FASTbot effectively avoids both static and dynamic obstacles in its path.
 [![Avoids static and dynamic obstacles](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Static_Dynamic_Obs_Avoid_Screenshot.png)](https://www.youtube.com/watch?v=7iK36OHjpcs "Avoids static and dynamic obstacles")
-#### FASTbot Full Demo
+#### FASTbot in full action.
 [![FASTbot Full Demo](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot%20Full%20Feature%20Demo%20YouTube%20ScreenShot.png)](https://www.youtube.com/embed/YjjWvV42Nm4 "FASTbot Full Demo")
 
 
 ## Conclusion
+Our team provided highly successful overall, achieveing all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trival task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
 
 ## Team
+![]()
+Mariyam Jivani
+![]()
+Anastasia Scott
+![]()
+Robert Hoogsteden
+
+Our team worked collaboratively, taking turns typing on the main workstation and writing our code as a team.  Those of us not actively typing at the workstation had out our laptops and would take notes on the process or research issues we were facing at any given time.  Full participation was key in our success and each of the team members were responsible for at least two major code break throughs when we got stuck during the process.
 
 ## Appendix
+
+### Project Code
+- Our code is available in full on the associated github repository and can be accessed using the link on the upper left corner of this page.
+
+### Dispatcher Window
+- Rviz and terminal windows displaying what the system looks like to the dispatcher.
+![]()
+![]()
+![]()
 
 ### rqt_graphs
 #### Active Nodes with No Instructions Given to the Bot
