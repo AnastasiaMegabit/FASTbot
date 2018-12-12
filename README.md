@@ -117,11 +117,14 @@ Our team provided highly successful overall, achieving all of our measurable goa
 
 ## Team
 #### Mariyam Jivani
+
 ![]()
 #### Anastasia Scott 
 Electrical Engineering and Computer Science senior at University of California, Berkeley.  Most insterested in the fields of social robotics and interactive, assistive AI.
+
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Robert Hoogsteden
+
 ![]()
 
 Our team worked collaboratively, taking turns typing on the main workstation and writing our code as a team.  Those of us not actively typing at the workstation had out our laptops and would take notes on the process or research issues we were facing at any given time.  Full participation was key in our success and each of the team members were responsible for at least two major code breakthroughs when we got stuck during the process.
