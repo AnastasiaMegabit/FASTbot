@@ -116,12 +116,13 @@ Our bot achieved many goals successfully...
 Our team provided highly successful overall, achieving all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trivial task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
 
 ## Team
-![]()
 #### Mariyam Jivani
-![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
-#### Anastasia Scott - Electrical Engineering and Computer Science senior at University of California, Berkeley
 ![]()
+#### Anastasia Scott 
+Electrical Engineering and Computer Science senior at University of California, Berkeley.  Most insterested in the fields of social robotics and interactive, assistive AI.
+![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Robert Hoogsteden
+![]()
 
 Our team worked collaboratively, taking turns typing on the main workstation and writing our code as a team.  Those of us not actively typing at the workstation had out our laptops and would take notes on the process or research issues we were facing at any given time.  Full participation was key in our success and each of the team members were responsible for at least two major code breakthroughs when we got stuck during the process.
 
