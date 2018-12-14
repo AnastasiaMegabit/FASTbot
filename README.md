@@ -109,15 +109,13 @@ Our bot achieved many goals successfully...
 #### FASTbot in full action.
 [![FASTbot Full Demo](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot%20Full%20Feature%20Demo%20YouTube%20ScreenShot.png)](https://www.youtube.com/embed/YjjWvV42Nm4 "FASTbot Full Demo")
 
-## Next Steps
-While we continue to work on our stretch goals that include facial recognition, color block recognition and porting of the code onto the rover, we also will be working on making our algorithm even more robust in the following ways - 
-- As mentioned earlier, obstacle avoidance is integral to allowing FASTbot to help in an emergency situation. This means, FASTbot needs to be able to work around/with many different types of obstacles and also needs to be able to distinguish between people and stationary objects. We will continue to work on improving this part of the algorithm. One way would be to learn about local costmaps of the bot and work towards making them more accurate through probabilistic methods.
-- We realised that while launching amcl, we were always expected to give a global map of the area to the turtlebot, which could be inconvenient in many situations. However, As mentioned earlier, clearing the global map of the lab and earasing a lot of obstacles, helped us eliminate several problems. So, we plan on first, testing how the algorithm works when we feed in a cleared out map just as a placeholder. This would again, mean that we would be relying heavility on the local costmap represenations which takes us back to first step we wish to achieve. 
-- Lastly, we will take into account the battery of the FASTbot. It is inevitable, with the heavy use of the kinect camera and so many other files running in the background on the FASTbot, that FASTbot will need some way of realising it is low on battery and performing certain steps through another potential piece of code in our algorithm, before it is too late, to charge itself. Once we port everything to the raspberry pi rover, we plan on first finding the best way to have the bot charged and also communicate with the software. 
-
 ## Conclusion
 Our team was highly successful overall, achieving all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trivial task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
 
+### Improvements 
+Before we move on to accomplishing out stretch goals, we will work on improving our algorithm to make it more robust. Below are some improvements we have in mind - 
+- As mentioned earlier, obstacle avoidance is integral to allowing FASTbot to help in an emergency situation. This means, FASTbot needs to be able to work around/with many different types of obstacles and also needs to be able to distinguish between people and stationary objects. We will continue to work on improving this part of the algorithm. One way would be to learn about local costmaps of the bot and work towards making them more accurate through probabilistic methods.
+- We realised that while launching amcl, we were always expected to give a global map of the area to the turtlebot, which could be inconvenient in many situations. However, As mentioned earlier, clearing the global map of the lab and earasing a lot of obstacles, helped us eliminate several problems. So, we plan on first, testing how the algorithm works when we feed in a cleared out map just as a placeholder. This would again, mean that we would be relying heavility on the local costmap represenations which takes us back to first step we wish to achieve. 
 
 
 ## Team
@@ -148,11 +146,14 @@ Our team worked collaboratively, taking turns typing on the main workstation and
 ![Patrolling terminal and visualization](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Full%20Patrol%20Terminal.jpeg?raw=true)
 
 ### rqt_graphs
+
 #### Active Nodes with No Instructions Given to the Bot
 ![Active Nodes with no Instructions](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Active%20Nodes%20when%20no%20instructions%20passed.jpeg)
 
+
 #### ros_graph with No Instructions Given to the Bot
 ![ROS Graph with no Instructions](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/RosGraph%20when%20no%20instruction%20passed.jpeg)
+
 
 #### Active Nodes with Instructions Given to the Bot
 ![Active Nodes with Instructions](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/ActiveNodes%20when%20instruction%20passed.jpeg)
@@ -160,4 +161,6 @@ Our team worked collaboratively, taking turns typing on the main workstation and
 #### ros_graph with Instructions Given to the Bot
 ![ROS Graph with Instructions](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/RosGraph%20when%20instruction%20passed.jpeg)
 
+
+# Thank You
 
