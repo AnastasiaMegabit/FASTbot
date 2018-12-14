@@ -123,10 +123,11 @@ Before we move on to accomplishing our stretch goals, we will work on improving 
 #### Anastasia Scott 
 Fourth year Electrical Engineering and Computer Science at University of California, Berkeley. Interested in the fields of social robotics and assistive artificial intelligence.
 
-![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
+![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott_small.jpg?raw=true)
 
 #### Mariyam Jivani
 Fourth Year Electrical Engineering and Computer Science Undergraduate at University of California, Berkeley. Interested in learning and working on electrical engineering applications in healthcare.
+
 ![Mariyam](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Mariyam_small.jpg?raw=true)
 
 #### Robert Hoogsteden
