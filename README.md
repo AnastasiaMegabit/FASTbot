@@ -124,16 +124,17 @@ Before we move on to accomplishing our stretch goals, we will work on improving 
 Fourth year Electrical Engineering and Computer Science at University of California, Berkeley. Interested in the fields of social robotics and assistive artificial intelligence.
 
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
-#### Robert Hoogsteden
-Fourth year Electrical Engineering and Computer Science at University of California, Berkeley. Interested in learning more about autonomous vehicles, robotics, and designing systems based around human interaction between the two.
-
-![Robb](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Robb.jpg)
 
 #### Mariyam Jivani
 Fourth Year Electrical Engineering and Computer Science Undergraduate at University of California, Berkeley. Interested in learning and working on electrical engineering applications in healthcare.
 ![Mariyam](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Mariyam.jpg?raw=true)
 
 Our team worked collaboratively, taking turns typing on the main workstation and writing our code together. Those of us not actively typing at the workstation worked simultaneously on our laptops to take notes on the process or research issues we were facing at any given time. Full participation was key in our success and each of the team member was responsible for at least two major code breakthroughs when we got stuck during the process.
+
+#### Robert Hoogsteden
+Fourth year Electrical Engineering and Computer Science at University of California, Berkeley. Interested in learning more about autonomous vehicles, robotics, and designing systems based around human interaction between the two.
+
+![Robb](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Robb.jpg)
 
 ## Appendix
 
