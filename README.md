@@ -125,8 +125,10 @@ Fourth year Electrical Engineering and Computer Science at University of Califor
 
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Robert Hoogsteden
+Fourth year Electrical Engineering and Computer Science at University of California, Berkeley. Interested in learning more about autonomous vehicles, robotics, and designing systems based around human interaction between the two.
 
-![]()
+![Robb](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Robb.jpg)
+
 #### Mariyam Jivani
 Fourth Year Electrical Engineering and Computer Science Undergraduate at University of California, Berkeley. Interested in learning and working on electrical engineering applications in healthcare.
 ![Mariyam](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Mariyam.jpg?raw=true)
