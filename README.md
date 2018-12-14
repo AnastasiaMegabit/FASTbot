@@ -59,7 +59,7 @@ Shortly thereafter, we decided to use a Turtlebot 2 instead because, unlike the 
 - We found that we experienced an inexact rotation/distance for patrol due to our decision to use an 80 degree spinScan.  The choice to use this odd degree was because we wanted to make sure the tag would, at some point, be within the scope of the Kinect camera during its full spin but at the same time minimize the number of scans the bot would have to stop to make.  This meant that when the bot "turned to the left/right", it would be an offset from its starting position and the bot would not move exactly left or exactly right.  We decided this was acceptable considering the bot was simply patrolling a general area and not specifically required to go exactly left or right.
 
 #### Following instructions
-- Our bot was designed to request a new instruction from dispatch using the raw_input command.  This works beautifully when the dispatcher turns the bots in the morning and they sit at home waiting for instructions but it is problematic if the bot is in the field after its last pickup or dropoff.  The request was going to function the same but if the bot was in the field, it should only wait for a short time before returning home to get out of the way.  raw_input does not have a built in time out feature so we had to get creative. We found a creative use of an AlarmException and the signal class which we could tweak and leverage to call goHome after it waited for 20 seconds and which would then send an empty char to raw_input.
+- Our bot was designed to request a new instruction from dispatch using the raw_input command.  This works beautifully when the dispatcher turns the bots in the morning and they sit at home waiting for instructions but it is problematic if the bot is in the field after its last pickup or dropoff.  The request was going to function the same but if the bot was in the field, it should only wait for a short time before returning home to get out of the way.  raw_input does not have a built in time out feature so we had to think outside the box. We found a creative use of an AlarmException and the signal class which we could tweak and leverage to call goHome after it waited for 20 seconds and which would then send an empty char to raw_input.
 - Recognizing whether or not the bot is at home when it can't find the ARTag was a complication as well.  We found that if the bot patrolled and area but did not find a the AR tag for which it was looking, it would assume it was home and return to waiting for a new instruction.  We used a simple boolean value to account for this occasion.  If the bot left home initially, it recognized it was not home and would not again assume it was home unless goHome was called.
 
 
@@ -113,9 +113,9 @@ Our bot achieved many goals successfully...
 Our team was highly successful overall, achieving all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trivial task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
 
 ### Improvements 
-Before we move on to accomplishing out stretch goals, we will work on improving our algorithm to make it more robust. Below are some improvements we have in mind - 
+Before we move on to accomplishing our stretch goals, we will work on improving our algorithm to make it more robust. Below are some improvements we have in mind:
 - As mentioned earlier, obstacle avoidance is integral to allowing FASTbot to help in an emergency situation. This means, FASTbot needs to be able to work around/with many different types of obstacles and also needs to be able to distinguish between people and stationary objects. We will continue to work on improving this part of the algorithm. One way would be to learn about local costmaps of the bot and work towards making them more accurate through probabilistic methods.
-- We realised that while launching amcl, we were always expected to give a global map of the area to the turtlebot, which could be inconvenient in many situations. However, As mentioned earlier, clearing the global map of the lab and earasing a lot of obstacles, helped us eliminate several problems. So, we plan on first, testing how the algorithm works when we feed in a cleared out map just as a placeholder. This would again, mean that we would be relying heavility on the local costmap represenations which takes us back to first step we wish to achieve. 
+- We realised that while launching amcl, we were always expected to give a global map of the area to the turtlebot, which could be inconvenient in many situations. However, As mentioned earlier, clearing the global map of the lab and erasing a lot of obstacles, helped us eliminate several problems. So, we first plan to test how the algorithm works when we feed in a cleared out map as a placeholder. This would again mean that we would be relying heavily on the local costmap represenations which takes us back to first step we wish to achieve. 
 
 
 ## Team
@@ -126,12 +126,10 @@ Electrical Engineering and Computer Science senior at University of California, 
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Robert Hoogsteden
 
-
+![]()
 #### Mariyam Jivani
 Fourth Year Electrical Engineering and Computer Science Undergraduate at University of California, Berkeley. Interested in learning and working on electrical engineering applications in healthcare.
 ![Mariyam](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Mariyam.jpg?raw=true)
-
-![]()
 
 Our team worked collaboratively, taking turns typing on the main workstation and writing our code together. Those of us not actively typing at the workstation worked simultaneously on our laptops to take notes on the process or research issues we were facing at any given time. Full participation was key in our success and each of the team member was responsible for at least two major code breakthroughs when we got stuck during the process.
 
