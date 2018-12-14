@@ -45,14 +45,12 @@ Shortly thereafter, we decided to use a Turtlebot 2 instead because, unlike the 
 
 #### Localizing the bot in the Global Frame
 - Ensuring the bot recognized its own position and orientation on the the global map of the lab was important for navigating to an AR Tag while using move_base.  If the bot could not localize itself appropriately, it would mis calculate the pose of the ARTag of interest and go to a place that did not have the actual ARTag. This required us to launch rviz everytime we launched other important files to ensure we could set the 2D Pose of the bot manually. 
-
-#### Generating the local obstacle costmap
-- Getting a clean map of the lab was critical for the bot to correctly predict where the obstacles were in the local costmap. It took awhile for us to identify this as the issue but once we did, we were able to clear the small marks on the map away and give the bot clean white space on the floor.  At that point, it was able to update the local costmap easily any time it moved around.
+- Getting a clean map of the lab was critical for the bot to correctly predict where the obstacles were in the global costmap. Initially, it would either assume there was an obstacle in a spot where there wasn't any or overestimate an obstacle's size in it's local costmap because the obstacle was stacked over a black spot on the global map. It took awhile for us to identify this as the issue but once we did, we were able to edit and delete the small black marks on the map and give the bot clean white space to work with within the walls of lab on the map.  At that point, it was able to have a better estimation of obstacles in its way.
 ![Setting a 2D pose](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/NavigationLaunchers.jpeg?raw=true)
-- Physically lifting and moving bot confused it and placed obstacles where there were none.  We eventually found that if we used the 2D pose estimate and 2D nav goal features in the rviz visualization tool, the bot had no trouble keeping a current obstacle map.
+- Physically lifting and moving the bot confused it and placed obstacles where there were none.  We eventually found that if we used the 2D pose estimate and 2D nav goal features in the rviz visualization tool, it was easier for the bot to track where was it heading without adding multiple obstacles to its way. 
 
 #### Obstacle Avoidance
-- When we first began thinking of the best way to avoid obstacles, ..... (Need to talk about Mark Silliman here too)
+- When we first began this project, we knew obstacle avoidance would be a challenge because although there were many ways and levels that were already available to us to pick from or start fresh, we would have to consider the properties of our own project, its goals and the functionalities of the bot, ROS and rviz to be able to debug the process if anything goes wrong. In our research phase for obstacle avoidance, we came across Mark Silliman's website on turtlebot navigation and his explanation on how to use move_base. After researching move_base for a day or two, we relaised it was a great starting point because it allowed us to work with the position and orientation of the bot rather then the velocity of the bot (which many previous other algorithms suggested). This made it easier for the bot to leverage the pose of the ARTag and use move_base goals, that comprises of headings, position and orientation coordinates and it's obstacle avoidance functionalities to get to an ARTag. We also went back to last year's group projects to see get help in the debugging process for move_base. These projects allowed us to understand how move_base exceptions, server as well as goal sending worked. 
 - While experimenting with move_base to determine limitations of obstacle avoidance for the bot, we realized that the obstacle had to be of a certain height before the bot could fully estimate it's dimensions. While the bot could easily acknowledge the presence of an obstacle for any size, the edges of a shorter obstacle seemed a little fuzzy in the bot's local costmap and therefore, it was not able to navigate them well. Thus, had to ensure obstacles were approximately above the kinect's height on the bot for clear edge detection in the local costmap.
 [![FASTbot taps edges of block box video](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot_Blooper.png)](https://youtu.be/XcfFtEHvWSk "FASTbot taps edges of block box video")
 
@@ -111,23 +109,33 @@ Our bot achieved many goals successfully...
 #### FASTbot in full action.
 [![FASTbot Full Demo](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/FASTbot%20Full%20Feature%20Demo%20YouTube%20ScreenShot.png)](https://www.youtube.com/embed/YjjWvV42Nm4 "FASTbot Full Demo")
 
+## Next Steps
+While we continue to work on our stretch goals that include facial recognition, color block recognition and porting of the code onto the rover, we also will be working on making our algorithm even more robust in the following ways - 
+- As mentioned earlier, obstacle avoidance is integral to allowing FASTbot to help in an emergency situation. This means, FASTbot needs to be able to work around/with many different types of obstacles and also needs to be able to distinguish between people and stationary objects. We will continue to work on improving this part of the algorithm. One way would be to learn about local costmaps of the bot and work towards making them more accurate through probabilistic methods.
+- We realised that while launching amcl, we were always expected to give a global map of the area to the turtlebot, which could be inconvenient in many situations. However, As mentioned earlier, clearing the global map of the lab and earasing a lot of obstacles, helped us eliminate several problems. So, we plan on first, testing how the algorithm works when we feed in a cleared out map just as a placeholder. This would again, mean that we would be relying heavility on the local costmap represenations which takes us back to first step we wish to achieve. 
+- Lastly, we will take into account the battery of the FASTbot. It is inevitable, with the heavy use of the kinect camera and so many other files running in the background on the FASTbot, that FASTbot will need some way of realising it is low on battery and performing certain steps through another potential piece of code in our algorithm, before it is too late, to charge itself. Once we port everything to the raspberry pi rover, we plan on first finding the best way to have the bot charged and also communicate with the software. 
 
 ## Conclusion
-Our team provided highly successful overall, achieving all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trivial task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
+Our team was highly successful overall, achieving all of our measurable goals and one of our stretch goals.  Obstacle avoidance was a non-trivial task and we found it to be an enjoyable challenge.  Once we agreed to use the move_base library, most of our problems were small but plentiful.  The phrase "the devil's in the details" would be the most accurate way to describe the majority of our hurdles.  
+
+
 
 ## Team
-#### Mariyam Jivani
 
-![]()
 #### Anastasia Scott 
-Electrical Engineering and Computer Science senior at University of California, Berkeley.  Insterested in the fields of social robotics and assistive artificial intelligence.
+Electrical Engineering and Computer Science senior at University of California, Berkeley. Interested in the fields of social robotics and assistive artificial intelligence.
 
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Robert Hoogsteden
 
+
+#### Mariyam Jivani
+Fourth Year Electrical Engineering and Computer Science Undergraduate at University of California, Berkeley. Interested in learning and working on electrical engineering applications in healthcare.
+![Mariyam](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Mariyam.jpg?raw=true)
+
 ![]()
 
-Our team worked collaboratively, taking turns typing on the main workstation and writing our code as a team.  Those of us not actively typing at the workstation had out our laptops and would take notes on the process or research issues we were facing at any given time.  Full participation was key in our success and each of the team members were responsible for at least two major code breakthroughs when we got stuck during the process.
+Our team worked collaboratively, taking turns typing on the main workstation and writing our code together. Those of us not actively typing at the workstation worked simultaneously on our laptops to take notes on the process or research issues we were facing at any given time. Full participation was key in our success and each of the team member was responsible for at least two major code breakthroughs when we got stuck during the process.
 
 ## Appendix
 
