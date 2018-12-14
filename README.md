@@ -121,7 +121,7 @@ Before we move on to accomplishing our stretch goals, we will work on improving 
 ## Team
 
 #### Anastasia Scott 
-Electrical Engineering and Computer Science senior at University of California, Berkeley. Interested in the fields of social robotics and assistive artificial intelligence.
+Fourth year Electrical Engineering and Computer Science at University of California, Berkeley. Interested in the fields of social robotics and assistive artificial intelligence.
 
 ![Anastasia](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Anastasia%20Scott-small.jpg?raw=true)
 #### Robert Hoogsteden
