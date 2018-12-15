@@ -131,7 +131,7 @@ Fourth Year Electrical Engineering and Computer Science Undergraduate at Univers
 ![Mariyam](https://github.com/AnastasiaMegabit/FASTbot/blob/master/img/Mariyam_small.jpg?raw=true)
 
 #### Robert Hoogsteden
-Fourth year Electrical Engineering and Computer Science at University of California, Berkeley. Interested in learning more about autonomous vehicles, robotics, and designing systems based around human interaction between the two.
+Fourth year Electrical Engineering and Computer Science Undergraduate at University of California, Berkeley. Interested in learning more about autonomous vehicles, robotics, and designing systems based around human interaction between the two.
 
 ![Robb](https://raw.githubusercontent.com/AnastasiaMegabit/FASTbot/master/img/Robb_small.jpg)
 
